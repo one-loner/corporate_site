@@ -1,0 +1,1 @@
+// Empty service worker for progressive web app compatibility

@@ -1,0 +1,10 @@
+/* TEAM */
+Riley O'Brien — DevOps Engineer — Singapore
+Quinn Sullivan — Security Engineer — Singapore
+Avery Nakamura — Frontend Developer — Singapore
+
+/* SITE */
+Last update: 2026-11-07
+Language: English
+Doctype: HTML5
+IDE: Vim, VSCode, Sublime

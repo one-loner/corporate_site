@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staticdex | Real-Time Analytics</title>
+    <meta name="description" content="Enterprise infrastructure and cloud solutions">
+    <meta name="robots" content="index, follow">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Segoe UI','Inter',system-ui,sans-serif;background:radial-gradient(ellipse at 20% 30%, #4c1f2d, #47494e);min-height:100vh;color:#f2e8f0;line-height:1.6}
+        .particles{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0}
+        .particle{position:absolute;background:rgba(15,23,42,0.50);border-radius:50%;pointer-events:none;animation:float 20s infinite ease-in-out}
+        @keyframes float{0%,100%{transform:translateY(0)translateX(0);opacity:.1}50%{transform:translateY(-40px)translateX(30px);opacity:.4}}
+        .navbar{position:fixed;top:0;width:100%;background:rgba(15,23,42,0.90);backdrop-filter:blur(12px);border-bottom:1px solid rgba(56,189,248,0.20);z-index:100;padding:1rem 2rem}
+        .nav-container{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+        .nav-logo{font-size:1.5rem;font-weight:700;background:linear-gradient(135deg, #38bdf8, #a855f7);-webkit-background-clip:text;background-clip:text;color:transparent}
+        .nav-links{display:flex;gap:2rem;flex-wrap:wrap}
+        .nav-links a{color:#94a3b8;text-decoration:none;transition:color .2s;font-size:.9rem}
+        .nav-links a:hover{color:#38bdf8}
+        .container{max-width:1200px;margin:0 auto;padding:6rem 2rem 3rem;position:relative;z-index:1}
+        .hero{text-align:center;margin-bottom:4rem}
+        .logo{font-size:4rem;font-weight:800;margin-bottom:.5rem;background:linear-gradient(135deg, #38bdf8 0%, #a855f7 50%, #ec4899 100%);background-size:200% 200%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gradientShift 6s ease infinite}
+        @keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+        .subtitle{font-size:1rem;color:#94a3b8;text-transform:uppercase;letter-spacing:4px;margin-bottom:1.5rem}
+        .hero-badge{display:inline-flex;gap:.75rem;flex-wrap:wrap;justify-content:center;margin-bottom:2rem}
+        .hero-badge span{background:rgba(255,255,255,.05);padding:.25rem 1rem;border-radius:20px;font-size:.7rem;border:1px solid rgba(56,189,248,0.20)}
+        .card{background:rgba(15,23,42,0.50);backdrop-filter:blur(8px);border-radius:24px;padding:2rem;border:1px solid rgba(56,189,248,0.20);transition:transform .2s,border-color .2s;margin-bottom:2rem}
+        .card:hover{border-color:#38bdf8;transform:translateY(-2px)}
+        .status-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(16,185,129,.12);color:#10b981;padding:.35rem 1rem;border-radius:30px;font-size:.75rem;margin-bottom:1.5rem;border:1px solid rgba(16,185,129,.3)}
+        .status-dot{width:8px;height:8px;background:#10b981;border-radius:50%;animation:pulse 1.5s infinite}
+        @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.2)}}
+        h2{font-size:1.6rem;margin-bottom:1rem;font-weight:600}
+        .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem;margin:2rem 0}
+        .feature-item{background:rgba(0,0,0,.3);border-radius:16px;padding:1.2rem;text-align:center;transition:all .2s;border:1px solid rgba(255,255,255,.05)}
+        .feature-item:hover{background:rgba(15,23,42,0.50);border-color:rgba(56,189,248,0.20)}
+        .feature-icon{font-size:2rem;margin-bottom:.5rem;display:block}
+        .feature-title{font-weight:600;margin-bottom:.25rem}
+        .feature-desc{font-size:.75rem;color:#94a3b8}
+        .blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin:1.5rem 0}
+        .blog-card{background:rgba(0,0,0,.25);border-radius:16px;padding:1.2rem;border-bottom:2px solid #38bdf8}
+        .blog-date{font-size:.7rem;color:#38bdf8;margin-bottom:.5rem}
+        .blog-title{font-weight:600;margin-bottom:.5rem}
+        .blog-excerpt{font-size:.8rem;color:#94a3b8}
+        .read-more{display:inline-block;margin-top:.5rem;font-size:.75rem;color:#38bdf8;text-decoration:none}
+        .contact-sim{background:rgba(0,0,0,.3);border-radius:20px;padding:1.5rem;margin:2rem 0;text-align:center}
+		.contact-sim input,.contact-sim textarea{background:#1e293b;border:1px solid #334155;border-radius:30px;padding:.6rem 1.2rem;color:white;width:260px;margin:.5rem;font-family:inherit}
+		.contact-sim textarea{resize:vertical;min-height:40px;max-height:120px;height:40px}
+		.contact-sim button{background:linear-gradient(135deg, #1e293b, #0f172a);border:1px solid #38bdf8;border-radius:30px;padding:.6rem 1.5rem;color:#38bdf8;cursor:pointer;transition:all .2s}
+		.contact-sim button:hover{background:#38bdf8;color:#0f172a}
+        .footer{margin-top:3rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.1);text-align:center;font-size:.7rem;color:#475569}
+        .footer-links{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;margin-bottom:1rem}
+        .footer-links a{color:#475569;text-decoration:none}
+        .footer-links a:hover{color:#38bdf8}
+        @media(max-width:768px){.nav-container{flex-direction:column}.container{padding-top:8rem}.features-grid{grid-template-columns:1fr}.blog-grid{grid-template-columns:1fr}.logo{font-size:2.5rem}}
+    </style>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7689905614"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-7689905614')</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Staticdex","url":"https://static.4893301.xyz","description":"Real-Time Analytics","logo":"https://static.4893301.xyz/assets/logo.svg","address":{"@type":"PostalAddress","addressLocality":"Singapore","addressCountry":"Singapore"},"contactPoint":{"@type":"ContactPoint","email":"abuse@static.4893301.xyz","contactType":"sales"}}</script>
+</head>
+<body>
+<div class="particles" id="particles"></div>
+<nav class="navbar"><div class="nav-container"><div class="nav-logo">Staticdex</div><div class="nav-links"><a href="/">Home</a><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/blog/">Blog</a></div></div></nav>
+<div class="container">
+    <div class="hero">
+        <div class="hero-badge"><span>🔒 TLS 1.3</span><span>⚡ HTTP/3 Ready</span><span>🛡️ DNSSEC</span><span>🌍 Anycast</span></div>
+        <div class="logo">Staticdex</div>
+        <div class="subtitle">Real-Time Analytics</div>
+    </div>
+    <div class="card">
+        <div class="status-badge"><span class="status-dot"></span><span>System Online | HA Cluster Active</span></div>
+        <h2>Edge Manager</h2>
+        <p>Welcome to Staticdex. Distributed edge computing platform with serverless functions, CDN configuration, and regional routing policies.</p>
+    </div>
+    <div class="features-grid">
+        <div class="feature-item"><span class="feature-icon">🚀</span><div class="feature-title">Global CDN</div><div class="feature-desc">Global anycast routing</div></div>
+        <div class="feature-item"><span class="feature-icon">🛡️</span><div class="feature-title">Zero Trust</div><div class="feature-desc">WAF + DDoS mitigation</div></div>
+        <div class="feature-item"><span class="feature-icon">🌍</span><div class="feature-title">Auto-scaling</div><div class="feature-desc">Multi-region failover</div></div>
+        <div class="feature-item"><span class="feature-icon">⚡</span><div class="feature-title">Enterprise SLA</div><div class="feature-desc">SLA guaranteed</div></div>
+    </div>
+    <div class="blog-grid">
+        <div class="blog-card"><div class="blog-date"><span id="blogDate1"></span></div><div class="blog-title">Infrastructure Upgrade Complete</div><div class="blog-excerpt">All systems are now running on the latest hardware revision.</div><a href="/blog/security-update-2026.html" class="read-more">Read more →</a></div>
+        <div class="blog-card"><div class="blog-date"><span id="blogDate2"></span></div><div class="blog-title">New DDoS Protection Layer</div><div class="blog-excerpt">Enhanced mitigation capabilities now active across all edge nodes.</div><a href="/blog/network-expansion.html" class="read-more">Read more →</a></div>
+        <div class="blog-card"><div class="blog-date"><span id="blogDate3"></span></div><div class="blog-title">Edge Location Launched</div><div class="blog-excerpt">New points of presence added in Asia-Pacific region.</div><a href="/news/edge-location.html" class="read-more">Read more →</a></div>
+    </div>
+	<div class="contact-sim">
+        <p style="margin-bottom:.75rem; font-weight:500;">Contact our team</p>
+        <form action="/contact" method="POST" style="display:flex; flex-wrap:wrap; justify-content:center; gap:0.5rem;">
+            <input type="text" name="name" placeholder="Your name" required>
+            <input type="email" name="email" placeholder="Email address" required>
+            <textarea name="message" placeholder="How can we help?" rows="2"></textarea>
+            <button type="submit">Send →</button>
+        </form>
+        <p style="font-size:.7rem; margin-top:.75rem; color:#475569">We'll respond within 24 hours</p>
+    </div>
+    <div class="footer">
+        <div class="footer-links"><a href="/about/">About Us</a><a href="/contact/">Contact</a><a href="/blog/">Blog</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/cookies/">Cookies</a><a href="https://www.cloudflare.com" target="_blank">Cloudflare</a><a href="https://www.digitalocean.com" target="_blank">DigitalOcean</a></div>
+        <div>© <span id="currentYear"></span> Staticdex · Enterprise Infrastructure · All rights reserved</div>
+        <div style="margin-top:.5rem">Last updated: <span id="lastUpdated"></span></div>
+    </div>
+</div>
+<script>
+    const particlesContainer=document.getElementById('particles');
+    for(let i=0;i<60;i++){const p=document.createElement('div');p.classList.add('particle');const s=Math.random()*6+2;p.style.width=s+'px';p.style.height=s+'px';p.style.left=Math.random()*100+'%';p.style.top=Math.random()*100+'%';p.style.animationDelay=Math.random()*15+'s';p.style.animationDuration=Math.random()*20+10+'s';particlesContainer.appendChild(p)}
+    document.getElementById('currentYear').textContent=new Date().getFullYear();
+    const months=['January','February','March','April','May','June','July','August','September','October','November','December'];
+    const now=new Date();
+    const currentDate=months[now.getMonth()]+' '+now.getFullYear();
+    document.getElementById('lastUpdated').textContent=currentDate;
+    const lastMonth=months[(now.getMonth()-1+12)%12]+' '+now.getFullYear();
+    const twoMonthsAgo=months[(now.getMonth()-2+12)%12]+' '+(now.getMonth()<2?now.getFullYear()-1:now.getFullYear());
+    document.getElementById('blogDate1').textContent=currentDate;
+    document.getElementById('blogDate2').textContent=lastMonth;
+    document.getElementById('blogDate3').textContent=twoMonthsAgo;
+</script>
+<script>
+    // Handle contact form submission with redirect follow
+    const contactForm = document.querySelector('.contact-sim form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button[type="submit"]');
+            const originalText = btn.textContent;
+            btn.textContent = 'Sending...';
+            btn.disabled = true;
+            
+            try {
+                const formData = new FormData(this);
+                const response = await fetch(this.action, {
+                    method: 'POST',
+                    body: formData,
+                    redirect: 'follow'  // <-- КЛЮЧЕВОЙ ПАРАМЕТР
+                });
+                
+                // Если сервер вернул 302, браузер автоматически перейдёт по Location
+                // Просто перезагружаем страницу, чтобы показать thank-you
+                if (response.redirected) {
+                    window.location.href = response.url;
+                } else {
+                    // fallback
+                    window.location.href = '/contact/thank-you.html';
+                }
+            } catch (error) {
+                // Если fetch не сработал, всё равно переходим на thank-you
+                window.location.href = '/contact/thank-you.html';
+            } finally {
+                btn.textContent = originalText;
+                btn.disabled = false;
+            }
+        });
+    }
+</script>
+<div id="cookie-banner" style="position:fixed;bottom:0;left:0;right:0;background:rgba(15,23,42,0.98);backdrop-filter:blur(12px);border-top:1px solid rgba(255,255,255,0.1);padding:1rem 2rem;z-index:9999;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;font-size:0.85rem;">
+        <p style="margin:0;color:#94a3b8;">We use cookies to improve your experience. By continuing, you agree to our <a href="/privacy" style="color:#38bdf8;">Privacy Policy</a>.</p>
+        <button onclick="document.getElementById('cookie-banner').remove()" style="background:#38bdf8;color:#0f172a;border:none;padding:0.5rem 1.5rem;border-radius:6px;cursor:pointer;font-weight:600;">Accept</button>
+        </div>
+</body>
+</html>

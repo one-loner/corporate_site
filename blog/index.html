@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Staticdex | linear-gradient(135deg, #38bdf8 0%, #a855f7 50%, #ec4899 100%)</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Segoe UI',system-ui,sans-serif;background:radial-gradient(ellipse at 20% 30%, #4c1f2d, #47494e);min-height:100vh;color:#f2e8f0}
+        .navbar{position:fixed;top:0;width:100%;background:rgba(15,23,42,0.90);backdrop-filter:blur(12px);border-bottom:1px solid rgba(56,189,248,0.20);padding:1rem 2rem;z-index:100}
+        .nav-container{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+        .nav-logo{font-size:1.5rem;font-weight:700;background:linear-gradient(135deg, #38bdf8, #a855f7);-webkit-background-clip:text;background-clip:text;color:transparent}
+        .nav-links{display:flex;gap:2rem;flex-wrap:wrap}
+        .nav-links a{color:#94a3b8;text-decoration:none;font-size:.9rem}
+        .nav-links a:hover{color:#38bdf8}
+        .container{max-width:1200px;margin:0 auto;padding:8rem 2rem 4rem}
+        h1{font-size:2.5rem;margin-bottom:2rem;background:linear-gradient(135deg, #38bdf8, #a855f7);-webkit-background-clip:text;background-clip:text;color:transparent}
+        .blog-list-item{background:rgba(15,23,42,0.50);backdrop-filter:blur(8px);border-radius:20px;padding:1.5rem;margin-bottom:1.5rem;border:1px solid rgba(56,189,248,0.20);transition:all .2s}
+        .blog-list-item:hover{border-color:#38bdf8;transform:translateX(4px)}
+        .blog-date{color:#38bdf8;font-size:.8rem;margin-bottom:.5rem}
+        .blog-title{font-size:1.3rem;font-weight:600;margin-bottom:.5rem}
+        .blog-excerpt{color:#94a3b8;font-size:.9rem}
+        .read-more{display:inline-block;margin-top:.8rem;color:#38bdf8;text-decoration:none;font-size:.8rem}
+        .footer{margin-top:3rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.1);text-align:center;font-size:.7rem;color:#475569}
+        .footer-links{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;margin-bottom:1rem}
+        .footer-links a{color:#475569;text-decoration:none}
+        .footer-links a:hover{color:#38bdf8}
+    </style>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7689905614"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-7689905614')</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Threat Landscape: Our Response to Rising DDoS Attacks","publisher":{"@type":"Organization","name":"Staticdex","logo":{"@type":"ImageObject","url":"https://static.4893301.xyz/assets/logo.svg"}},"datePublished":"2026-11-07"}</script>
+</head>
+<body>
+<nav class="navbar"><div class="nav-container"><div class="nav-logo">Staticdex</div><div class="nav-links"><a href="/">Home</a><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/blog/">Blog</a></div></div></nav>
+<div class="container">
+    <h1>Blog</h1>
+    <div class="blog-list-item"><div class="blog-date"><span id="date1"></span></div><div class="blog-title">Real-Time Analytics</div><div class="blog-excerpt">New ML-based DDoS detection system now active across all edge locations.</div><a href="/blog/security-update-2026.html" class="read-more">Read more →</a></div>
+    <div class="blog-list-item"><div class="blog-date"><span id="date2"></span></div><div class="blog-title">Threat Landscape: Our Response to Rising DDoS Attacks</div><div class="blog-excerpt">Upgraded our core infrastructure with the latest AMD EPYC processors.</div><a href="/blog/infrastructure-update-2026.html" class="read-more">Read more →</a></div>
+    <div class="blog-list-item"><div class="blog-date"><span id="date3"></span></div><div class="blog-title">Compute Evolution: Benchmarking Our New AMD EPYC Nodes</div><div class="blog-excerpt">Announcing our largest network expansion to date.</div><a href="/blog/network-expansion.html" class="read-more">Read more →</a></div>
+    <div class="footer">
+        <div class="footer-links"><a href="/about/">About Us</a><a href="/contact/">Contact</a><a href="/blog/">Blog</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/cookies/">Cookies</a></div>
+        <div>© <span id="year"></span> Staticdex · Enterprise Infrastructure</div>
+    </div>
+</div>
+<script>
+    document.getElementById('year').textContent=new Date().getFullYear();
+    const m=['January','February','March','April','May','June','July','August','September','October','November','December'];
+    const d=new Date();const d1=new Date();d1.setDate(d.getDate()-3);const d2=new Date();d2.setDate(d.getDate()-7);const d3=new Date();d3.setDate(d.getDate()-14);
+    document.getElementById('date1').textContent=m[d1.getMonth()]+' '+d1.getDate()+', '+d1.getFullYear();
+    document.getElementById('date2').textContent=m[d2.getMonth()]+' '+d2.getDate()+', '+d2.getFullYear();
+    document.getElementById('date3').textContent=m[d3.getMonth()]+' '+d3.getDate()+', '+d3.getFullYear();
+</script>
+<div id="cookie-banner" style="position:fixed;bottom:0;left:0;right:0;background:rgba(15,23,42,0.98);backdrop-filter:blur(12px);border-top:1px solid rgba(255,255,255,0.1);padding:1rem 2rem;z-index:9999;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;font-size:0.85rem;">
+        <p style="margin:0;color:#94a3b8;">We use cookies to improve your experience. By continuing, you agree to our <a href="/privacy" style="color:#38bdf8;">Privacy Policy</a>.</p>
+        <button onclick="document.getElementById('cookie-banner').remove()" style="background:#38bdf8;color:#0f172a;border:none;padding:0.5rem 1.5rem;border-radius:6px;cursor:pointer;font-weight:600;">Accept</button>
+        </div>
+</body>
+</html>
